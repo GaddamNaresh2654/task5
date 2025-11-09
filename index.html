@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Capstone Shop • Final Project</title>
+    <meta name="description" content="A performant, responsive demo shop built with HTML, CSS, and JavaScript.">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    </noscript>
+    <link rel="stylesheet" href="assets/css/style.min.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <h1 class="logo">Capstone <span class="accent">Shop</span></h1>
+        <nav class="nav" aria-label="Primary">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">☰</button>
+          <ul id="nav-menu" class="nav-menu">
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <button class="cart-button" aria-label="Open cart" data-action="toggle-cart">
+          🛒 <span class="cart-count" aria-live="polite">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div>
+            <h2>Fast, responsive, and accessible web app</h2>
+            <p>Built with performance in mind: lazy-loaded images, minified assets, and a snappy UI.</p>
+            <a class="btn" href="#products">Shop Now</a>
+          </div>
+          <img class="hero-img" loading="lazy" src="assets/img/hero.webp" alt="Shopping illustration" width="560" height="360">
+        </div>
+      </section>
+
+      <section id="products" class="products container">
+        <header class="section-header">
+          <h2>Featured Products</h2>
+          <div class="controls">
+            <label>
+              <span class="sr-only">Search products</span>
+              <input id="search" type="search" placeholder="Search products..." autocomplete="off">
+            </label>
+            <label>
+              <span class="sr-only">Filter by category</span>
+              <select id="category-filter">
+                <option value="all">All Categories</option>
+              </select>
+            </label>
+          </div>
+        </header>
+
+        <ul id="product-grid" class="product-grid" aria-live="polite" aria-busy="true"></ul>
+      </section>
+
+      <section id="about" class="about container">
+        <h2>About</h2>
+        <p>This capstone demonstrates modern front‑end fundamentals: semantic HTML, responsive CSS, and modular JavaScript with progressive enhancement and strong performance defaults.</p>
+      </section>
+
+      <section id="contact" class="contact container">
+        <h2>Contact</h2>
+        <form id="contact-form" novalidate>
+          <div class="grid-2">
+            <label> Name
+              <input required name="name" autocomplete="name">
+            </label>
+            <label> Email
+              <input required type="email" name="email" autocomplete="email">
+            </label>
+          </div>
+          <label> Message
+            <textarea required name="message" rows="4"></textarea>
+          </label>
+          <button class="btn" type="submit">Send</button>
+          <p id="contact-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <aside id="cart" class="cart" aria-label="Shopping cart" hidden>
+      <div class="cart-inner">
+        <header class="cart-header">
+          <h3>Your Cart</h3>
+          <button class="icon-button" data-action="toggle-cart" aria-label="Close cart">✕</button>
+        </header>
+        <ul id="cart-items" class="cart-items" aria-live="polite"></ul>
+        <footer class="cart-footer">
+          <div class="totals">
+            <span>Total:</span>
+            <strong id="cart-total">$0.00</strong>
+          </div>
+          <button class="btn btn-primary" id="checkout" type="button">Checkout</button>
+        </footer>
+      </div>
+    </aside>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> Capstone Shop. Built for the Final Project and Optimization task.</p>
+      </div>
+    </footer>
+
+    <script defer src="assets/js/app.min.js"></script>
+  </body>
+  </html>
+
+
